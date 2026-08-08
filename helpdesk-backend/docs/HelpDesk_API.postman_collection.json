@@ -1,0 +1,58 @@
+{
+  "info": {
+    "name": "Help Desk API",
+    "description": "Coleccion de pruebas para la API del Sistema de Gestion de Incidentes",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    { "key": "baseUrl", "value": "http://localhost:5000" },
+    { "key": "ticketId", "value": "" }
+  ],
+  "item": [
+    {
+      "name": "Listar tickets",
+      "request": {
+        "method": "GET",
+        "url": "{{baseUrl}}/tickets"
+      }
+    },
+    {
+      "name": "Buscar ticket por id",
+      "request": {
+        "method": "GET",
+        "url": "{{baseUrl}}/tickets/{{ticketId}}"
+      }
+    },
+    {
+      "name": "Crear ticket",
+      "request": {
+        "method": "POST",
+        "header": [ { "key": "Content-Type", "value": "application/json" } ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"titulo\": \"Falla en el switch del segundo piso\",\n  \"descripcion\": \"Los usuarios reportan intermitencia en la red cableada.\",\n  \"categoria\": \"Red\",\n  \"prioridad\": \"Alta\",\n  \"estado\": \"Abierto\"\n}"
+        },
+        "url": "{{baseUrl}}/tickets"
+      }
+    },
+    {
+      "name": "Actualizar ticket",
+      "request": {
+        "method": "PUT",
+        "header": [ { "key": "Content-Type", "value": "application/json" } ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"estado\": \"En Progreso\"\n}"
+        },
+        "url": "{{baseUrl}}/tickets/{{ticketId}}"
+      }
+    },
+    {
+      "name": "Eliminar ticket",
+      "request": {
+        "method": "DELETE",
+        "url": "{{baseUrl}}/tickets/{{ticketId}}"
+      }
+    }
+  ]
+}
