@@ -1,0 +1,12 @@
+/* src/index.css
+   Reexporta el Design System del proyecto (Actividad #5/6, Unidad 3).
+   Todas las variables, tipografía y componentes base (botones, cards,
+   badges, formularios, tabla, alertas) viven en design-system.css y se
+   reutilizan tal cual en esta SPA de React, tal como pide la Actividad #9:
+   "Integrar los estilos CSS profesionales y el diseño adaptable definidos
+   en la Unidad 3". */
+@import './design-system.css';
+
+#root {
+  min-height: 100vh;
+}
